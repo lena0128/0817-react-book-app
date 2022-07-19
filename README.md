@@ -3,6 +3,14 @@
 ## Google Books API
 <a href="https://developers.google.com/books">Google Books APIs</a>
 
+### How to Set Default Value of JavaScript Object Attributes
+let emptyObj = {};
+const { nonExistingAttribute = defaultValue } = emptyObj;
+console.log(nonExistingAttribute); // defaultValue
+
+### Variable Identifier _
+_ is a valid variable identifier in JavaScript, and could theoretically refer to anything. Using _(...) with function syntax implies that _ is a function.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,0 +1,11 @@
+.form__container {
+    margin: 10px auto 0 90px;
+}
+
+.searchbox__container{
+    display: flex;
+    flex-direction: row;
+    gap:10px;
+    justify-content: center;
+    align-items: center;
+}

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const initialState = {
     searchResult: [],
-    keyword: "book",
+    keyword: "",
     totalItems: 0,
     startIndex: 0,
     maxResults: 10,
@@ -19,7 +19,7 @@ export const getBooklist = createAsyncThunk(
         const maxResults = thunkAPI.getState().searchbook.maxResults;
         
         const res = await axios.get(
-            `https://www.googleapis.com/books/v1/volumes?q1=${keyword}&maxResults=${maxResults}`
+            `https://www.googleapis.com/books/v1/volumes?q=${keyword}&maxResults=${maxResults}`
         );
         return res.data;
     } 
@@ -41,13 +41,13 @@ const searchbookSlice = createSlice({
         [getBooklist.fulfilled]: (state, action) => {
             // console.log(action.payload)
             state.totalItems = action.payload.totalItems
-            state.searResults = action.payload.items
-            // console.log(state.searResults)
+            state.searchResult = action.payload.items
+            // console.log(state.searchResult)
             state.isLoading = false
         },
         [getBooklist.rejected]: (state, action) => {
             state.isLoading = false
-            console.log("request is rejected", action.error)
+            // console.log("request is rejected", action.error)
         }
     }
 })

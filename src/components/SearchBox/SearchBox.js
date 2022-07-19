@@ -26,10 +26,12 @@ const SearchBox = () => {
 
 
     return(
-        <form onSubmit={handleSubmit}>
+        <div className="form__container">
+        <form onSubmit={handleSubmit} className="search-box__container">
             <input type="text" onChange={handleChange} value={keyword}/> 
             <button>Submit</button>
         </form>
+        </div>
     )
 }
 

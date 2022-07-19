@@ -1,0 +1,12 @@
+.search-result__container {
+    position: relative;
+}
+
+
+.search-result__container ul {
+    list-style-type: none;
+}
+
+* div {
+    margin: 0 auto;
+  }

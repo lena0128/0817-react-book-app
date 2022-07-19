@@ -1,6 +1,7 @@
-# Getting Started with Create React App
+# React Book App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Google Books API
+<a href="https://developers.google.com/books">Google Books APIs</a>
 
 ## Available Scripts
 

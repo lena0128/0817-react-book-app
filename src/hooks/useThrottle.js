@@ -16,3 +16,6 @@ const useThrottle = (callback, timeout) => {
 }
 
 export default useThrottle;
+
+// Function expressions in JavaScript are not hoisted, unlike function declarations. 
+// You can't use function expressions before you create them. 

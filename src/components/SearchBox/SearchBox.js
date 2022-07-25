@@ -21,6 +21,7 @@ const SearchBox = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         throttledSubmit();
+        dispatch(updateKeyword(""))
     }
 
 

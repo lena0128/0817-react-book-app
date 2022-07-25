@@ -11,6 +11,24 @@ console.log(nonExistingAttribute); // defaultValue
 ### Variable Identifier _
 _ is a valid variable identifier in JavaScript, and could theoretically refer to anything. Using _(...) with function syntax implies that _ is a function.
 
+### Function Expressions
+(1) Function expressions in JavaScript are not hoisted, unlike function declarations. You can't use function expressions before you create them. 
+(2) Benefits of Function Expressions
+* As closures
+* As arguments to other functions
+* As Immediately Invoked Function Expressions (IIFE)
+
+### Why Closures Are Used in JavaScript?
+In JavaScript, closures are the primary mechanism used to enable data privacy. When you use closures for data privacy, the enclosed variables are only in scope within the containing (outer) function. You can't get at the data from an outside scope except through the object's privileged methods.
+
+### Window.localStorage
+* getItem(keyNameString)
+* setItem(keyNameString, keyValueString)
+* removeItem(keyName)
+* key(index) - returns the name of the nth key in a given Storage object.
+* clear() -  clears all keys stored in a given Storage object.
+
+
 ## Available Scripts
 
 In the project directory, you can run:

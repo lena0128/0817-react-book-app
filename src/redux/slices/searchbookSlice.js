@@ -10,6 +10,11 @@ const initialState = {
     isLoading: false
 }
 
+/**
+ * 1. updateKeyword(keyword)
+ * 2. getBooklist from Google Books API
+ * 3. changePage(pageNum) => server side pagination
+ */
 
 export const getBooklist = createAsyncThunk(
     "searchbook/getBooklist",   // action type string
@@ -23,6 +28,28 @@ export const getBooklist = createAsyncThunk(
         );
         return res.data;
     } 
+)
+
+
+export const changePage =  createAsyncThunk(
+    "searchbook/chnagePage",
+    async(pageNum, thunkAPI) => {
+        const keyword = thunkAPI.getState().searchbook.keyword;
+        const maxResults = thunkAPI.getState().searchbook.maxResults;
+        const totalItems = thunkAPI.getState().searchbook.totalItems;
+
+        const totalPages = Math.ceil(totalItems / maxResults); 
+        if(pageNum <= 0 || pageNum > totalPages) {
+            return thunkAPI.rejectWithValue("page number is invalid");
+        }
+        
+        const res = await axios.get(
+            `https://www.googleapis.com/books/v1/volumes?q=${keyword}&startIndex=${
+                (pageNum - 1) * maxResults
+              }&maxResults=${maxResults}`
+        );
+        return res.data;
+    }
 )
 
 const searchbookSlice = createSlice({
@@ -48,9 +75,26 @@ const searchbookSlice = createSlice({
         [getBooklist.rejected]: (state, action) => {
             state.isLoading = false
             // console.log("request is rejected", action.error)
-        }
+        },
+        [changePage.pending]: (state, action) => {
+            state.isLoading = true;
+        },
+        [changePage.fulfilled]: (state, action) => {
+            state.totalItems = action.payload.totalItems;
+            state.searchResult = action.payload.items;
+            state.isLoading = false;
+            
+            const pageNum = action.meta.arg;
+            const maxResults = state.maxResults;
+            const startIndex = (pageNum - 1) * maxResults
+            state.startIndex = startIndex;
+        }, 
+        [changePage.rejected]: (state, action) => {
+            alert(action.error)
+        },
     }
 })
+
 
 
 const searchbookReducer = searchbookSlice.reducer;

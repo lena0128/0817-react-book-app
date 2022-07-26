@@ -34,6 +34,9 @@ const BookInfo = ({ bookInfo }) => {
                 <div className="info__row">
                     <b>Description: </b><span>{description}</span>
                 </div>
+                <div className="info__row">
+                    <button>Add To Wishlist</button>
+                </div>
             </div>
 
         </div>

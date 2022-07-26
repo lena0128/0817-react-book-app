@@ -12,15 +12,3 @@
     align-items: center;
     margin-bottom: 2rem;
 }
-
-.page-button__container button {
-    color: #FBBF29;
-    font-weight: 700;
-    border: none;
-    padding: 15px 32px;
-    cursor: pointer;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 1rem;
-}

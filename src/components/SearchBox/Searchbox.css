@@ -5,7 +5,13 @@
 .searchbox__container{
     display: flex;
     flex-direction: row;
-    gap:10px;
+    gap:20px;
     justify-content: center;
     align-items: center;
 }
+
+input[type=text] {
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
